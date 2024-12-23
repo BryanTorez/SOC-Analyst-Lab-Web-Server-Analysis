@@ -64,18 +64,16 @@ Over to my downloads directory. Right-click then extract to this directory. The 
 <br />
 <br />
 <br />
-Now to download '7zip', you simply need to head over to '7-zip.com' then click on download. Click on 'Okay' to extract file. Now we should have a new directory. Head over there and double-click the web server PCAP. : <br/>
+Now to download '7zip', you must head to '7-zip.com' and then click on download. Click on 'Okay' to extract the file. Now we should have a new directory. You can just head over there and double-click the web server PCAP. : <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/gKY48R.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/R6gJ75.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-now if you're following along your wire shark may look a bit different than mine and that is because I did use this previously in other labs there are some configurations that will'll just quickly go over just to make sure that you can follow along properly first and foremost I am using wi shark version 4.4 and the reason why I mentioned this is because some earlier versions of wi shark can have some discrepancies so if you are planning on following along I would highly recommend that you update your version to 4.4 the next thing I want to mention here is the time by default your time shouldn't look: <br/>
+Now if you're following along your Wireshark may look a bit different than mine and that is because I did use this previously in other labs. here are some configurations that will'll just quickly go over just to make sure that you can follow along properly first and foremost I am using wi shark version 4.4 and the reason why I mentioned this is because some earlier versions of wi shark can have some discrepancies so if you are planning on following along I would highly recommend that you update your version to 4.4 the next thing I want to mention here is the time by default your time shouldn't look: <br/>
 <br />
 <img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
