@@ -73,106 +73,82 @@ Now to download '7zip', you must head to '7-zip.com' and then click on download.
 <br />
 <br />
 <br />
-Now if you're following along your Wireshark may look a bit different than mine and that is because I did use this previously in other labs. here are some configurations that will'll just quickly go over just to make sure that you can follow along properly first and foremost I am using wi shark version 4.4 and the reason why I mentioned this is because some earlier versions of wi shark can have some discrepancies so if you are planning on following along I would highly recommend that you update your version to 4.4 the next thing I want to mention here is the time by default your time shouldn't look: <br/>
+Now if you're following along your Wireshark may look a bit different than mine. That is because I did use this previously in other labs. Here are some configurations that we'll just quickly go over just to make sure that you can follow along properly. First and foremost I am using Wireshark version 4.4 and the reason why I mentioned this is because some earlier versions of Wireshark can have some discrepancies. So if you are planning on following along I would highly recommend that you update your version to 4.4. : <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/sXOaUg.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/aG9s2A.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+The next thing I want to mention here is the time. By default, your time column shouldn't look like mine. To change this you want to head over to 'View'. Scroll down to 'Time Display Format' and make sure that you select 'UTC Date and Time of Day'. Once you select that, your time should look like mine. Then you want to make sure to sort it by time by simply clicking on this column here. Once you do that we should be good to start analyzing this PCAP: <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/uICqcE.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/AeMdox.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+When it comes to network analysis, particularly with a PCAP, the first thing I like to do here is to take a look at the 'Statistics' Tab and in particular the 'Capture File Properties'. From here we can see that the first packet was on 2023-09-10 at 18:13:06 and the last packet was at 18:27:37 with a duration of 14 minutes and 30 seconds. : <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/FUktWl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/fROXFL.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
-<br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Now one thing to keep in mind is that your time might be different than mine and that is because the timing for the first and last packet is based on your computer's time zone. Meaning if I was using a PST time zone on my computer then the first and last packet time would change accordingly. In my instance, I am using UTC on my computer so that means the first and last packet for this particular PCAP is in UTC time. That is just something to keep in mind. : <br/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+...but if you take a look at the packets here. The timing shouldn't be reflected in your computer time zone because you did select the 'UTC Date and Time'. Once you select that you're essentially telling Wireshark to display everything in UTC time.: <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5F8HSK.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/JyezoA.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+So now that we've gone over the first and last packet. Looking at the bottom, we can see that the total number of packets captured was 2,070 packets. Now you might be thinking well that was kind of useless in a lab environment too. But you do want to build a habit of checking those properties because if somebody were to hand you a PCAP, you want to make sure that you're analyzing the correct one. : <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Z81AFW.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+The next thing that you want to do here is to click on 'Statistics' and go over to 'Protocol Hierarchy'. This will tell you all of the protocols that exist within this particular PCAP. We can see that there are UDP, TCP, SMB, multicast DNS, SSH, and HTTP protocols. : <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Mocpg9.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+Then let's go over to 'Conversations' and head over to 'ipv4'. From here, I like to sort it by bytes. That way we can see who are the top talkers. Now from the top here, we can see that the top talker is coming from this address of '14.0.0.120' talking to '10.0.0.112'. So that is something to keep a note on my notepad. Aswell as the second entry of '10.0.0.115'.: <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/vZNHBz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/nq89Zg.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+Go ahead and select 'TCP'. We have 9,465 entries. That's quite insane. And similar to what we did earlier, go ahead and sort it by bytes. Now the highest bytes are at the top and we can see it's going to ports '8080', '22', and '445' which is SMB, '80', and '443'. So let's make a note out of that.: <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/USYP5V.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/jDNHeJ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
+<img src="https://snipboard.io/gw8H2K.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-: <br/>
+<br />
+<br />
+Let's begin our analysis. Starting from the top, we can see that there is a communication initiated from our '10.0.0.115' address over to '10.0.0.105' on Port 445 what that tells me is that 105 is a file server of some sort because it does have SMB opened now if we go over to the SMB protocol which is on packet number four we can expand the packets by clicking on smb2 and we can actually see the header of the SMB now if we take a look at the session setup response on packet number n and expand SMB under the smb2 header we could actually see the: <br/>
 <br />
 <img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
