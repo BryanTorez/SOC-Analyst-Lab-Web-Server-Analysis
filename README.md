@@ -148,31 +148,31 @@ Go ahead and select 'TCP'. We have 9,465 entries. That's quite insane. And simil
 <br />
 <br />
 <br />
-Let's begin our analysis. Starting from the top, we can see that there is a communication initiated from our '10.0.0.115' address over to '10.0.0.105' on Port 445 what that tells me is that 105 is a file server of some sort because it does have SMB opened now if we go over to the SMB protocol which is on packet number four we can expand the packets by clicking on smb2 and we can actually see the header of the SMB now if we take a look at the session setup response on packet number n and expand SMB under the smb2 header we could actually see the: <br/>
+Let's begin our analysis. Starting from the top, we can see that there is a communication initiated from our '10.0.0.115' address over to '10.0.0.105' on Port 445. What that tells me is that '105' is a file server of some sort because it does have SMB opened. Now if we go over to the SMB protocol which is on packet number four, we can expand the packets by clicking on smb2 and we can actually see the header of the SMB.: <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/CIH5zU.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/p0GxDL.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<br />
-<br />
-: <br/>
-<br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<img src="https://snipboard.io/296s5t.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/zdv12O.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-: <br/>
+Now if we take a look at the session setup response on packet number nine and expand SMB under the smb2 header we could actually see the username domain and the host computer that initiated the request. So from here we can see that the account was 'root', under the domain of 'WORKINGROUP', and the host-name is 'CYBERDEFENDERS VIRTUAL-MACHINE'. So what I'll do here is put it in my notepad, aswell as the '10.0.0.105' IP. : <br/>
 <br />
-<img src="https://snipboard.io/SKWgji.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/NMCHim.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://snipboard.io/MqCpgV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<img src="https://snipboard.io/OLR7Nf.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+Scrolling down here I'm not going to go super deep into what these fields mean for SMB so instead I am going to leave a link down in the description for you if you wanted to learn more about it if I take a look here I do see a PDF document called workor report 2023 PDF so what I can do here is actually try downloading this PDF document by heading over to file export objects go to SMB and here we can see the workor report file and there are two of them here 2023 and 2022 we could actually just save both of them and you know what I'll save it under my downloads and we can head over to our: <br/>
+<br />
+<img src="https://snipboard.io/l6pOYw.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <img src="https://snipboard.io/t6dWjO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
