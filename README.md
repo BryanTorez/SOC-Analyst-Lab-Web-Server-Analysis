@@ -183,7 +183,7 @@ Go ahead and select 'TCP'. We have 9,465 entries. That's quite insane. And simil
 <br />
 <br />
 <br />
-Let's begin our analysis. Starting from the top, we can see that there is a communication initiated from our '10.0.0.115' address over to '10.0.0.105' on Port 445. What that tells me is that '105' is a file server of some sort because it does have SMB opened. Now if we go over to the SMB protocol which is on packet number four, we can expand the packets by clicking on smb2 and we can actually see the header of the SMB.: <br/>
+Let's begin our analysis. Starting from the top, we can see that there is a communication initiated from our '10.0.0.115' address over to '10.0.0.105' on Port 445. What that tells me is that '105' is a file server of some sort because it does have SMB opened. Now if we go over to the SMB protocol which is on packet number four, we can expand the packets by clicking on SMB2 and we can actually see the header of the SMB.: <br/>
 <br />
 <br />
 <img src="https://snipboard.io/zJ2ZTo.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -192,21 +192,18 @@ Let's begin our analysis. Starting from the top, we can see that there is a comm
 <img src="https://snipboard.io/YvO08z.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
 <br />
 <br />
 Now if we take a look at the session setup response on packet number nine and expand SMB under the smb2 header we could actually see the username domain and the host computer that initiated the request. So from here we can see that the account was 'root', under the domain of 'WORKINGROUP', and the host-name is 'CYBERDEFENDERS VIRTUAL-MACHINE'. So what I'll do here is put it in my notepad, aswell as the '10.0.0.105' IP. : <br/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/oaNOK7.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/znDiSc.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/w2CVoG.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -214,13 +211,10 @@ Now if we take a look at the session setup response on packet number nine and ex
 Scrolling down here, I'm not going to go super deep into what these fields mean for SMB. So instead I am going to leave a link down in the description for you if you wanted to learn more about it. If I take a look here I do see a PDF document called work_report 2023 PDF.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/nMTjA9.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/EyAQWi.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -228,13 +222,13 @@ Scrolling down here, I'm not going to go super deep into what these fields mean 
 So what I can do here is actually try downloading this PDF document by heading over to "File". Click on "Export Objects". Select "SMB". Here we can see the "work_report" file. There one from '2023' and another from '2022'. We could actually just save both of them under "Downloads".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Py5bwi.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/oBGObE.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/xuDLYB.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -242,27 +236,27 @@ So what I can do here is actually try downloading this PDF document by heading o
 We can head over to our downloads directory. I'll hold shift and right-click. I'll open up Powershell. I'll type in "Get-FileHash" and hit "Tab". I see the work_report 2022 selected. So I'll go ahead and hit "Enter". Then, we'll see the sha256 file hash.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/TuY9LJ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/nCEDmh.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Zcixb4.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-The next thing I can do is go over to VirusTotal and we can search up that hash. Now, we see no security vendors flagged this file as malicious. Does that mean it's safe? Definitely no, but it's a start. Let's do the same for the '2023'. Copy that out and paste. Once again, same thing. No security vendors flagged this file as malicious.
+The next thing I can do is go over to VirusTotal and we can search up that hash. Now, we see no security vendors flagged this file as malicious. Does that mean it's safe? Definitely not, but it's a start. Let's do the same for the '2023'. Copy that out and paste. Once again, same thing. No security vendors flagged this file as malicious.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/uGVwgl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/V2uOLI.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/gt2OCN.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -271,13 +265,16 @@ Now taking a look at the "File Type", it is "Text" with the "Magic" being "ASCII
 For the '2022' file it says, "Work Report for year 2022...". The '2023' file is almost identical to '2022' file.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/uQ9O72.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/C8RKzY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/GpguhC.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/gPi7kc.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -285,27 +282,30 @@ For the '2022' file it says, "Work Report for year 2022...". The '2023' file is 
 Now that we got that out of the way. Go ahead and close that out. There is just constant communication towards '115' and '105'. I'm going to skip over a lot of the SMB stuff. So now we can see SSH connection starting from packet '137'. Our Cyber Defenders virtual machine initiated a SSH session to the IP of '10.0.0.112' and we can see that it is a "SYN".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/QnR15j.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/RV2rPu.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/2vwsEV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Our '112' was like, "Hey! I'm alive." So its a "SYN-ACK". Then the last handshake '115', said, "Hey! How's it going! So its "ACK here and an SSH connection was successfully established. Okay, so that tells me that '112' is an SSH server. Now, we continue to scroll down since SSH is encrypted. There isn't really too much here.
+Our '112' was like, "Hey! I'm alive." So it's a "SYN, ACK". Then the last handshake '115', said, "Hey! How's it going! So it's an "ACK". Zn SSH connection was successfully established. Okay, so that tells me that '112' is an SSH server. Now, we continue to scroll down since SSH is encrypted. There isn't really too much here.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/2vwsEV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/vVZ6bO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Jrfd75.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/3Xbkql.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -313,13 +313,16 @@ Our '112' was like, "Hey! I'm alive." So its a "SYN-ACK". Then the last handshak
 On packet '685'. Our IP address of '115' communicates over to '112' on port '8080' and this is our first HTTP protocol. What I can do is right-click this. Click on "Follow". Select "HTTP Stream..." Here we can see the packet itself. Taking a look at the user agent, it is "Mozilla/5.0" and I also see "Ubuntu:Linux". What that tells me is that the Cyber Defenders virtual machines operating system is Ubuntu.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/nGBmUO.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/sAKIol.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/WzefVQ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/pO8zS9.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -327,13 +330,10 @@ On packet '685'. Our IP address of '115' communicates over to '112' on port '808
 Looking at the server response, we can see that the title is "Apache Tomcat", specifically with the version of '7.0.88'. Now copy and paste that into the notepad. So that means our SSH server is also our Apache Tomcat server. Now, it's getting a lot more interesting.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/9xT0Yq.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/2B0JLS.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -341,13 +341,7 @@ Looking at the server response, we can see that the title is "Apache Tomcat", sp
 I'll go ahead and remove my TCP stream. If we look over to our notepad... rather than scrolling down and taking a look at all of these events since that's going to take forever. We want to start drilling down into our top IP address, which is '14.0.0.120' on our notepad.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/oxGZ6a.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -355,32 +349,32 @@ I'll go ahead and remove my TCP stream. If we look over to our notepad... rather
 So I'll go ahead and copy this. Then type in "ip.addr==" and paste that in. Hit "Enter". Now, if you take a look at packet '1091', '1092', '1093', '1094', '1095' and continue scrolling down. You can see a bunch of "SIN" requests, which is a clear indicator of a "SIN" scan.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/CIid1o.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/X5u0Gl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-It's targeting port '256', '443', '199', '113, '25', '3306', and many more. What we can do is take a look at what ports are opened on our Apache Tomcat server. To do this, I'll look at the "SYN, ACK" on number '1108'. I'll expand the "Transmission Control Protocol". For "Flag", see how it says "SYN". I'll go ahead and right-click this.
+It's targeting port '256', '443', '199', '113, '25', '3306', and many more. What we can do is take a look at what ports are opened on our Apache Tomcat server. To do this, I'll look at the "SYN, ACK" on number '1108'. I'll expand the "Transmission Control Protocol". For "Flag", see how it says "SYN". I'll go ahead and right-click this. Select "Prepare as Filter" and click on "...and selected".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5xqLZ2.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/z9rxmF.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/RnoVub.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/85HaxY.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Select "Prepare as Filter" and click on "...and selected". What I also want to do is change my filter to look at the source IP address of '10.0.0.112'. Where the "Destination IP" is '14.0.0.120'. So to change that, I'll type in "(ip.src == 10.0.0. 112 && ip.dst == 14.0.0.120)&&(tcp.flags == 0x0012)". Hit "Enter".
+What I also want to do is change my filter to look at the source IP address of '10.0.0.112'. Where the "Destination IP" is '14.0.0.120'. So to change that, I'll type in "(ip.src == 10.0.0. 112 && ip.dst == 14.0.0.120)&&(tcp.flags == 0x0012)". Hit "Enter".
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
