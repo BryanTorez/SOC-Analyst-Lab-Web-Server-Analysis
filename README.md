@@ -562,13 +562,13 @@ We see a link called "HackTricks". So under "Default Credentials", the "/manager
 <br />
 <br />
 <br />
-If we go back over to our Wireshark, where there was a "Post-request". We do see a "WAR" file. Pretty cool. So this directory is protected by basic HTTP authentication with common credentials being: "admin:admin", "tomcat:tomcat", "admin:", "admin:s3cr3t", "tomcat:s3cr3t", and "admin:tomcat". You have to love default credentials...
+If we go back over to our Wireshark, where there was a "Post-request". We do see a "WAR" file. Pretty cool. So this directory is protected by basic HTTP authentication with common credentials being: "admin:admin", "tomcat:tomcat", "admin:", "admin:s3cr3t", "tomcat:s3cr3t", and "admin:tomcat". You gotta love default credentials...
 <br />
 <br />
 <img src="https://snipboard.io/qRV8EM.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/VnYp0U.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -579,13 +579,13 @@ If we go back over to our Wireshark, where there was a "Post-request". We do see
 Scrolling down to the next "Get-request" for the "/manager/html", we do see "Authorization: Basic" and here is base '64'. Go ahead and copy that. Let's open up CyberChef, and I'll go ahead and paste in that value. Then, drag in my "From Base64". We can see that it's trying "admin:admin" here.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/zR7b1u.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/iq9XMG.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/dtoqZr.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -593,46 +593,66 @@ Scrolling down to the next "Get-request" for the "/manager/html", we do see "Aut
 I'll scroll all the way down and see if there are any 200's. So there's one right here, "GET /manager/html" aswell as the server responding with "200 OK". Meaning that they successfully authenticated. I'll go ahead and copy this base64 and let's see what kind ocredentials they used. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/bJSoqB.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/9Ba7PA.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-So it says "admin:tomcat". Okay, let's note that down here. So I'll type "admin:tomcat login success", and what packet number was that at? So if I click on "Accept", the packet number is '20553'. This occurred at '18:20:24'. If I were to go back over to my filter for the external IP and HTTP.
+So it says "admin:tomcat". Okay, let's note that down here. So I'll type "admin:tomcat login success", and what packet number was that at? So if I click on "Accept", the packet number is '20553'. This occurred at '18:20:24'.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/QIfyKv.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/aGXlHz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/N197Mf.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
-<br />
-So the attacker logged in from packet '20553'. Once they logged in, they performed a "Post-request" for the WAR file and then afterwards they did a "Get-request" to that file. I'm gonna remove the HTTP protocol and just search for the external IP address since if we only zone in for HTTP, we might be missing other stuff.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/CvRVsP.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-The main thing I want to focus on are the events that occurred after the "Post-request". We do continue to see traffic between our Tomcat server to our attacker. On port '8080', we do see a "Get-request" towards that file that the attacker uploaded and immediately afterwards we get a "SYN", "SYN, ACK" and "ACK" on port '80'.
+If I were to go back over to my filter for the external IP and HTTP.So the attacker logged in from packet '20553'. Once they logged in, they performed a "Post-request" for the WAR file and then afterwards they did a "Get-request" to that file.
+<br />
+<br />
+<img src="https://snipboard.io/cwu5HC.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/kVWF0I.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/rYtlBZ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/hZXulH.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+I'm gonna remove the HTTP protocol and just search for the external IP address since if we only zone in for HTTP, we might be missing other stuff. The main thing I want to focus on are the events that occurred after the "Post-request".
+<br />
+<br />
+<img src="https://snipboard.io/g1a3CP.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/gBfjDU.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/yC6aeR.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/mo3CEz.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+We do continue to see traffic between our Tomcat server to our attacker. On port '8080', we do see a "Get-request" towards that file that the attacker uploaded and immediately afterwards we get a "SYN", "SYN, ACK" and "ACK" on port '80'.
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
