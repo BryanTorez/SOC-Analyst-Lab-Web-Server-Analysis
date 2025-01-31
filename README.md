@@ -503,13 +503,13 @@ I'll go ahead and open up Gary Kessler to take a look at the file signature. I'l
 Let's go back to our query where we're looking for the external IP and HTTP request since I want to see what happened before the "Post-request". So it's under the number '20599'. We can see our Tomcat server responded back to the external IP with an HTTP/XML as a protocol.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/oaFB0G.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Bab0cy.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/eQifLy.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -517,27 +517,24 @@ Let's go back to our query where we're looking for the external IP and HTTP requ
 However, if I scroll up just a bit, I see a lot of these '401' unauthorized and there are a lot of "Get-requests" towards "Manager/html". Let's go ahead and follow one of these here. So these are going towards "examples/". I don't really care about that. What I care about is the "manager".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/0h1oPK.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/byQKFj.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/xu1vPM.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/EbcHQ5.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Since we're seeing a lot of the "manager/html" "Get-requests", if I take a look at the server response. It does say "401 unauthorized" aswel as "You are not authorized to view this page. If you have not changed any configuration files, please examine the file tomcat-users.xml." 
+Since we're seeing a lot of the "manager/html" "Get-requests", if I take a look at the server response. It does say "401 unauthorized" as well as "You are not authorized to view this page. If you have not changed any configuration files, please examine the file tomcat-users.xml." 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/3UGibL.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -545,13 +542,10 @@ Since we're seeing a lot of the "manager/html" "Get-requests", if I take a look 
 Interesting. So this appears to be some kind of login page since it has "username" and "password" of secret. However, this is probably just the default credentials here. You know what, let's go and search that up. So I'll type in "tomcat manager HTML" and I'll include the version number as well just in case.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/fnvhtF.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/dlrIag.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -559,21 +553,19 @@ Interesting. So this appears to be some kind of login page since it has "usernam
 We see a link called "HackTricks". So under "Default Credentials", the "/manager/html directory is particularly sensitive as it allows the upload and deployment of WAR files, which can lead to code execution." I think that's what we saw on Wireshark. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/06OZnF.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BuvJqa.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
 <br />
 <br />
 <br />
 <br />
-If we go back over to our Wireshark, where there was a "Post-request". We do see a "WAR" file. Pretty cool,. So this directory is protected by basic HTTP authentication with common credentials being: "admin:admin", "tomcat:tomcat", "admin:", "admin:s3cr3t", "tomcat:s3cr3t", and "admin:tomcat". You have to love default credentials...
+If we go back over to our Wireshark, where there was a "Post-request". We do see a "WAR" file. Pretty cool. So this directory is protected by basic HTTP authentication with common credentials being: "admin:admin", "tomcat:tomcat", "admin:", "admin:s3cr3t", "tomcat:s3cr3t", and "admin:tomcat". You have to love default credentials...
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/qRV8EM.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
