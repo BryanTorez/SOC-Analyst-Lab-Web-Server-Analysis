@@ -374,16 +374,13 @@ It's targeting port '256', '443', '199', '113, '25', '3306', and many more. What
 <br />
 <br />
 <br />
-What I also want to do is change my filter to look at the source IP address of '10.0.0.112'. Where the "Destination IP" is '14.0.0.120'. So to change that, I'll type in "(ip.src == 10.0.0. 112 && ip.dst == 14.0.0.120)&&(tcp.flags == 0x0012)". Hit "Enter".
+What I also want to do is change my filter to look at the source IP address of '10.0.0.112'. Where the "Destination IP" is '14.0.0.120'. So to change that, I'll type in "(ip.src == 10.0.0.112 && ip.dst == 14.0.0.120)&&(tcp.flags == 0x0012)". Hit "Enter".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/okWpBw.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BGgXck.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -391,13 +388,13 @@ What I also want to do is change my filter to look at the source IP address of '
 Now we can see a bunch of "SYN,ACK's". These are all of the ports that are open. Including, port '22', port '8080' and port '8009' that is open. So there are three open ports. Let's go ahead and make a note out of that. Let's go ahead and rerun our previous query.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/pBrOi6.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/hCGKul.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/tsQdUb.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -405,35 +402,29 @@ Now we can see a bunch of "SYN,ACK's". These are all of the ports that are open.
 To do that, we can click on the drop down and select "ip.addr == 14.0.0.120". Without making this part too long, the next thing I tend to do here is take a look at the HTTP protocol. So type in "&& HTTP". Hit "Enter". Now these are all of the HTTP requests that contain our external IP address.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/d4E6Hu.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/F63dQ2.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/qRcD1B.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
-<br />
-When it comes to HTTP protocols, there are two request methods that are quite interesting. The first one is the "Get-request" and the other is the "Post-request". For the "Get-request", you're essentially retrieving information from the server, whereas the post request is that you're modifying/uploading something to the server.
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/EXYAy9.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Now, when I'm investigating potential suspicious activities, I always tend to look for the "Post-request". To modify that, all I need to do is type in "request.method == POST". You might ask, "Bryan... if I'm new to Wireshark, how would I know that?"
+When it comes to HTTP protocols, there are two request methods that are quite interesting. The first one is the "Get-request" and the other is the "Post-request". For the "Get-request", you're essentially retrieving information from the server, whereas the post request is that you're modifying/uploading something to the server. Now, when I'm investigating potential suspicious activities, I always tend to look for the "Post-request".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+To modify that, all I need to do is type in "request.method == POST". You might ask, "Bryan... if I'm new to Wireshark, how would I know that?"
+<br />
+<br />
+<img src="https://snipboard.io/qQyMX7.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -447,41 +438,50 @@ Now, when I'm investigating potential suspicious activities, I always tend to lo
 Well, one easy way here is to select a packet that contains the "Get" or a "Post-request". So our packet '19951', has a "Get-request" as we can see under the info column. If we scroll down here to bottom and expand our hypertext transfer protocol, we can expand the "Get-request" and we can see the "Request Method" is "Get".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/vTwsQR.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Kdofb1.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/H1PET0.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<br />
-<br />
-What I can do is. Select it. Right-click. Select "Prepare as Filter". Now you can see that our filter automatically included the "Get-request". However, we're just going to replace "GET" with "POST". So that is how you can do it. Again however, since I already added it, I'll go ahead and just remove that. Hit "Enter".
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/03ERoT.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-So we do only have one "Post-request" and this is on packet '2016'. Go ahead and select it. Right-click. Click "Follow". Select "HTTP Stream". Take a look at that. There's a file name starting with "JXQ" and taking a look at the ASCII header, we can see that it says "PK". So that is quite interesting.
+What I can do is. Select it. Right-click. Select "Prepare as Filter". Then "...and Selected". Now you can see that our filter automatically included the "Get-request". However, we're just going to replace "GET" with "POST". So that is how you can do it. Again however, since I already added it, I'll go ahead and just remove that. Hit "Enter".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ky1qTh.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/0KrvX8.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5NLPgm.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/431R7G.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<br />
+<br />
+So we do only have one "Post-request" and this is on packet '20616'. Go ahead and select it. Right-click. Click "Follow". Select "HTTP Stream". Take a look at that. There's a file name starting with "JXQ" and taking a look at the ASCII header, we can see that it says "PK". So that is quite interesting.
+<br />
+<br />
+<img src="https://snipboard.io/RFsph4.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/gdIsoW.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/7MRiKh.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/knCprs.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -489,13 +489,13 @@ So we do only have one "Post-request" and this is on packet '2016'. Go ahead and
 I'll go ahead and open up Gary Kessler to take a look at the file signature. I'll type in "PK". So a file signature starting with "PK" can be a "ZIP" file as we can see right here. Going back over to our Wireshark. Let's take note of this here. So this began at '18:22:14'. I'll just say "20616 - 18:22:14 - 14.0.0.120 - Uploaded (POST) PK File towards Tomcat Server". Just for easy reference, I put in the packet number '20616'.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ia6PgM.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/K1OBag.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/dVgUlw.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
