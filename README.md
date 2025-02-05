@@ -652,16 +652,19 @@ I'm gonna remove the HTTP protocol and just search for the external IP address s
 <br />
 <br />
 <br />
-We do continue to see traffic between our Tomcat server to our attacker. On port '8080', we do see a "Get-request" towards that file that the attacker uploaded and immediately afterwards we get a "SYN", "SYN, ACK" and "ACK" on port '80'.
+We do continue to see traffic between our Tomcat server to our attacker on port '8080'. We do see a "Get-request" towards that file that the attacker uploaded and immediately afterwards we get a "SYN", "SYN, ACK" and "ACK" on port '80'.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/I8VXjc.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/msc7IF.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Y1MnO9.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/6ECWy0.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -669,13 +672,10 @@ We do continue to see traffic between our Tomcat server to our attacker. On port
 Let's go ahead and "Follow". Select "TCP stream" and look at that. We get "whoami". We get a return value of "root". We get a change directory to "/tmp". They performed a "print working directory" and we do see "/tmp". Then they created what appears to be a "cron" job. Now what this is, is a essentially a schedule task, if you're familiar with Windows.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/2KvwoL.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/hYwEfQ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -683,13 +683,10 @@ Let's go ahead and "Follow". Select "TCP stream" and look at that. We get "whoam
 Now, you might ask. What exactly does this command do? If you're not familiar with Linux, it might look pretty confusing. So you know what, let's go ahead and copy this. Let's use ChatGBT. Go ahead and paste that in, but before you hit "Enter", you want to make sure to anonymize any of the artifacts. Such as IP addresses, domains, computers, usernames, and many others.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/nchCSA.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/XstG5p.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -697,13 +694,10 @@ Now, you might ask. What exactly does this command do? If you're not familiar wi
 So in this case, this right here is our IP address of the attacker. So instead of flat out giving out the IP address to ChatGBT, I'm just gonna say "IP". I'll leave the port as it is, which is '443' since that's quite common. Now, I'll go ahead and include, "what does this command do?"
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Er9Lzy.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/bVlN8f.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -711,10 +705,10 @@ So in this case, this right here is our IP address of the attacker. So instead o
 At the top it says, "The command you've provided is used to create a reverse shell, which is the type of connection used to gain remote access to a system." Thats pretty interesting. Scrolling down. "In essence, this command creates a reverse shell. The system running the command will connect to the specified IP address on port 443 and establish a shell session. This can be used by an attacker to gain remote control over the compromised machine."
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Lis1VI.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/GsQy9r.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
@@ -725,13 +719,7 @@ At the top it says, "The command you've provided is used to create a reverse she
 By using ChatGBT, we know exactly what this particular command does. It establishes a reverse shell towards our attacker's IP address on Port '443' to establish persistence. Now that we have all of that information, let's head back over to our Cyber Defenders and begin answering our questions. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/763ONG.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -739,13 +727,13 @@ By using ChatGBT, we know exactly what this particular command does. It establis
 Starting with number one, "Given the suspicious activity detected on the web server,... can you identify the source IP address responsible for initiating these requests on our server?" So we did see a "SYN" scan in the beginning and that was coming from our external IP address, which is this one right here, '14.0.0.120'. Paste that in. 
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/YdrQBW.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/BcwMiR.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/86FDhV.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -753,13 +741,13 @@ Starting with number one, "Given the suspicious activity detected on the web ser
 Question number two, what's the city from where the attacker originated from? What I'll use is abuseipdb.com. Taking a look at the city, it's this right here. Nice.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/SZUp0q.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/YiTUkx.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ZDq7ch.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -767,13 +755,10 @@ Question number two, what's the city from where the attacker originated from? Wh
 Question three, "From the pcap analysis, multiple open ports were detected as a result of the attacker's activitie scan. Which of these ports provides access to the web server admin panel?" Well, we know that it is port '8080'.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/icesd3.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/6cindl.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -781,13 +766,19 @@ Question three, "From the pcap analysis, multiple open ports were detected as a 
 Question four, "Following the discovery of open ports on our server, it appears that the attack attempted to enumerate and uncover directories and files on our web server. Which tools can you identify from the analysis that assisted the attacker in this enumeration process?" Going back over to our Wireshark. Let's go back to our filter for HTTP and the attacker's address. Scrolling all the way up, looking under the info column, I'm going to select a path such as this one right here, "GET /docs/". Right-click. Click "Follow". Select "HTTP stream" and we can see that the user agent is gobuster, specifically, version 3.6. So just type, "gobuster".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/Vo5OJK.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/iuqCRo.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/TBIy9w.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/XsR3N1.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/anysLU.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -795,13 +786,10 @@ Question four, "Following the discovery of open ports on our server, it appears 
 Question five, "...the attacker made numerous requests trying to identify administrative interfaces. Which specific directory associated with the admin panel was the attacker able to uncover?" This was the the "/manager". If you recall, the "manager/html" was what the attacker used to log into the panel.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/CuSLZ7.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5aExSd.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -809,13 +797,13 @@ Question five, "...the attacker made numerous requests trying to identify admini
 Question six, "Upon accessing the admin panel, the attacker made attempts to brute-force the login credentials. ...can you identify the correct username and password combination? That we can, and we added it here. So I'll just go ahead and copy that. "admin:tomcat" is is correct.
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/ZsD0VH.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/RskYTJ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/vIYmNf.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
@@ -823,27 +811,37 @@ Question six, "Upon accessing the admin panel, the attacker made attempts to bru
 Question seven, "Once inside the admin panel, the attacker attempted to upload a file... Can you identify the name of the malicious file? I don't think we copied that. So let me see if I have this here and I still do awesome. So the file name is "JXQOZY.war".
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/5Bgiht.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/1E5jOk.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/tOCNyn.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
 <br />
-Question eight, "Upon successfully establishing a reverse shell... the attacker aimed to ensure persistence on the compromised machine... can you determine the specific command they are scheduled to run? So if we go back over to our Wireshark. Let's go back over to our external IP address and this was on Port '80' near the bottom. So that was this one right here. Right-click. Click "Follow". Copy starting from "/bin" all the way to the end. Then paste it in.
+Question eight, "Upon successfully establishing a reverse shell... the attacker aimed to ensure persistence on the compromised machine... can you determine the specific command they are scheduled to run?" So if we go back over to our Wireshark. Let's go back over to our external IP address and this was on Port '80' near the bottom. So that was this one right here. Right-click. Click "Follow". Copy starting from "/bin" all the way to the end. Then paste it in.
+
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/feEo9J.jpgz" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/nYlTEh.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
-<img src="" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://snipboard.io/z7JpkD.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/vFA70f.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/05Q6KA.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<br />
+<br />
+<img src="https://snipboard.io/MgyBlQ.jpg" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <br />
 <br />
 <br />
